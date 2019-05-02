@@ -14,7 +14,12 @@ As a group, we were interested in the various natural phenomenom that occurs aro
 - Research done by the [NOAA](https://www.ngdc.noaa.gov/hazard/volcano.shtml) (National Centers for Environmental Information) on volcanos show the eruption locations, significance, environmental hazard ratings, and pyroclastic flows.
 - Real time data compiled by [USGS](https://www.usgs.gov/products/data-and-tools/real-time-data/volcanoes) allows us to see and receive notifications based on hazards. Along with this, you can go back and see previously recorded volcanic activities, the earthquakes associated with it, and the magnitides.
 - [Earth Works](https://earthworks.stanford.edu/catalog/harvard-glb-volc) by Stanford Libraries brings us an interactive map of compiled volcano data. This map looks at the point coverage that contains basic geographic and geologic information for worldwide volcanoes that were thought to have been active in the last 10,000 years.
-What data-driven questions do you hope to answer about this domain (share at least 3)?
+
+**What data-driven questions do you hope to answer about this domain (share at least 3)?**
+
+- What type/level of danger does Mount Rainier represent
+- What are some trends among volcanos regarding location, frequency, and explosivity
+- What might be some indicators of danger for future city development
 
 ## Finding data
 
