@@ -28,21 +28,25 @@ As a group, we were interested in the various natural phenomenom that occurs aro
 1. We downloaded from Kaggle, using [this](https://www.kaggle.com/texasdave/volcano-eruptions) dataset by the National Oceanic and Atmospheric Administration (NOAA).
 2. We downloaded from Smithsonian Institute, using [this](https://volcano.si.edu/).
 3. We downloaded from HDX, using [this](https://data.humdata.org/dataset/volcano-population-exposure-index-gvm/resource/e3b1ecf0-ec47-49f7-9011-6bbb7403ef6d).
+<br>
 **How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?**
 
 1. This data was collected from the National Centers for Environmental Information website, [Significant Volcanic Eruption Database](https://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50). The data was generated via observations and records of past volanic activity from around the world. Depending on your specific classifications/interests (Volcanic Explosivity Index, Country, Region, Lat, Long, Year, Name, etc...) will provide data about volcanos that match those attributes.
 2. Scientists in the Department of Mineral Sciences study samples from environments ranging from the mantle to mine drainages, from volcanic arcs to the asteroid belt and compile their findings. 
 3. The Humanitarian Data Exchange compiled data from various organisations and groups, built as an open platform for many to merge their findings.
+<br>
 **How many observations (rows) are in your data?**
 
 1. There are _63_ observations based on the classifications
 2. There are _12764_ observations based on the classifications
 3. There are _1546_ observations
+<br>
 **How many features (columns) are in the data?**
 
 1. There are _36_ features based on the classifications
 2. There are _26_ features based on the classifications
 3. There are _13_ features
+<br>
 **What questions (from above) can be answered using the data in this dataset?**
 
 1. The datasets can help us further understand the frequency and danger judging from recent and past trends. Using VEI, earthquake and depressurizing correlations from volcanos around the world, making a judgment or providing analysis on, for example, Mount Rainier would be possible.
