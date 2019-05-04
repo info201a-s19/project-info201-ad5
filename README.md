@@ -25,20 +25,26 @@ As a group, we were interested in the various natural phenomenom that occurs aro
 
 **Where did you download the data (e.g., a web URL)?**
 
-We downloaded from Kaggle, using [this](https://www.kaggle.com/texasdave/volcano-eruptions) dataset by the National Oceanic and Atmospheric Administration (NOAA).
-
+1. We downloaded from Kaggle, using [this](https://www.kaggle.com/texasdave/volcano-eruptions) dataset by the National Oceanic and Atmospheric Administration (NOAA).
+2. We downloaded from Smithsonian Institute, using [this](https://volcano.si.edu/).
+3. We downloaded from HDX, using [this](https://data.humdata.org/dataset/volcano-population-exposure-index-gvm/resource/e3b1ecf0-ec47-49f7-9011-6bbb7403ef6d).
 **How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?**
 
-This data was collected from the National Centers for Environmental Information website, [Significant Volcanic Eruption Database](https://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50). The data was generated via observations and records of past volanic activity from around the world. Depending on your specific classifications/interests (Volcanic Explosivity Index, Country, Region, Lat, Long, Year, Name, etc...) will provide data about volcanos that match those attributes.
-
+1. This data was collected from the National Centers for Environmental Information website, [Significant Volcanic Eruption Database](https://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50). The data was generated via observations and records of past volanic activity from around the world. Depending on your specific classifications/interests (Volcanic Explosivity Index, Country, Region, Lat, Long, Year, Name, etc...) will provide data about volcanos that match those attributes.
+2. Scientists in the Department of Mineral Sciences study samples from environments ranging from the mantle to mine drainages, from volcanic arcs to the asteroid belt and compile their findings. 
+3. The Humanitarian Data Exchange compiled data from various organisations and groups, built as an open platform for many to merge their findings.
 **How many observations (rows) are in your data?**
 
-There are _63_ observations based on the classifications
-
+1. There are _63_ observations based on the classifications
+2. There are _12764_ observations based on the classifications
+3. There are _1546_ observations
 **How many features (columns) are in the data?**
 
-There are _36_ features based on the classifications
-
+1. There are _36_ features based on the classifications
+2. There are _26_ features based on the classifications
+3. There are _13_ features
 **What questions (from above) can be answered using the data in this dataset?**
 
-The datasets can help us further understand the frequency and danger judging from recent and past trends. Using VEI, earthquake and depressurizing correlations from volcanos around the world, making a judgment or providing analysis on, for example, Mount Rainier would be possible.
+1. The datasets can help us further understand the frequency and danger judging from recent and past trends. Using VEI, earthquake and depressurizing correlations from volcanos around the world, making a judgment or providing analysis on, for example, Mount Rainier would be possible.
+2. The dataset will allow us to find the trends that exist between locations (long and latitude compared to VEI and strength).
+3. Given this dataset, there are features such as "hazard" and "risk" that greatly play into our goal of gauging the danger of Mount Rainier.
