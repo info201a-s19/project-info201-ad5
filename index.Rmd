@@ -6,31 +6,31 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 library("knitr")
-source("scripts/summary_info.R")
-source("scripts/summary_table.R")
 source("scripts/chart_one.R")
-source("scripts/chart_two.R")
-source("scripts/chart_three.R")
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Summary Info
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+## Summary Table
+
+
+
+## Chart One
+
+```{r chart_one_map, echo=FALSE}
+# Load in CSV from this working directory
+volcano_data_set <- read.csv("scripts/data/volcano_1980.csv", stringsAsFactors = FALSE)
+
+# Render the map through chart one function
+aggregating_occurence_by_location(volcano_data_set)
 ```
 
-## Including Plots
+## Chart Two
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Chart Three

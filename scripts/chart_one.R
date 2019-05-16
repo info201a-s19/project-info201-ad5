@@ -2,14 +2,11 @@
 library("dplyr")
 library("leaflet")
 
-# Load in data set for testing
-volcano_data_set <- read.csv("data/volcano_1980.csv", stringsAsFactors = FALSE)
-
 # Function the returns a different visualization, scatterplot by long/lat
 
 aggregating_occurence_by_location <- function (data_set) {
   suppressWarnings(leaflet(data = data_set) %>%
-    addProviderTiles("CartoDB.Positron") %>%
+    addProviderTiles("Esri") %>%
     addCircleMarkers(
       lat = ~Latitude,
       lng = ~Longitude,
@@ -18,4 +15,3 @@ aggregating_occurence_by_location <- function (data_set) {
       stroke = FALSE, fillOpacity = 0.5
     ))
 }
-
