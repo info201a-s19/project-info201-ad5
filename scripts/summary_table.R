@@ -5,6 +5,8 @@ library(tidyr)
 volcanos <- read.csv("data/volcano_1980.csv", stringsAsFactors = FALSE)
 # Out of the eruptions with revorded VEI's, what was the average for each year?
 # Also, what number of incidents per year did not have recorded incidents?
+
+get_table_info <- function(volcanos) {
 vol_df <- drop_na(volcanos, Year) %>%
   group_by(Year) %>%
   summarise(Incidents = n())
@@ -19,3 +21,6 @@ vol_table <- vol_table %>%
   mutate("Missing incidents" = Incidents.x - Incidents.y)
 vol_table <- rename(vol_table, "Number of Incidents with Recorded VEI" = Incidents.y)
 vol_table <- rename(vol_table, "Total Number of Incidents" = Incidents.x)
+
+return(vol_table)
+}
