@@ -1,6 +1,5 @@
 # Script for calculating summary information
 library(dplyr)
-vol_df <- read.csv("data/volcano_1980.csv", stringsAsFactors = FALSE)
 
 # Summary info
 get_summary_info <- function(vol_df) {
