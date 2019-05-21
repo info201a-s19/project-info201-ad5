@@ -1,5 +1,7 @@
 # Project Brainstorm
 
+[HTML Github Hosted Report Link](https://info201a-s19.github.io/project-info201-ad5)
+
 ## Topic
 
 **Volcanoes**
