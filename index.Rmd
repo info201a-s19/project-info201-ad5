@@ -55,3 +55,7 @@ total_death_vs_year(volcano_data_set)
 The purpose of this bar plot is to show the trend of the impact on humans from the years 1980 to 2000. It will also aid in resolving our question regarding the trends throughout the years and using that information to predict and map out hazardous locations. VEI in this bar plot refers to the amount of magma that erupts out of a volcano.
 
 ## Chart Three
+```{r chart_three_plot, echo = FALSE}
+top_five_country_greaest_damage(volcano_data_set)
+```
+
