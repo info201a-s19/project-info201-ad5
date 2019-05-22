@@ -13,32 +13,33 @@ source("scripts/chart_one.R")
 source("scripts/chart_two.R")
 source("scripts/chart_three.R")
 # Load in CSV from this working directory
-volcano_data_set <- read.csv("scripts/data/volcano_1980.csv", stringsAsFactors = FALSE)
+volcano_data_set <- read.csv("data/volcano_1980.csv", stringsAsFactors = FALSE)
 volcano_data_set <- volcano_data_set[-1, ]
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction
 
-As a group, we were interested in the various natural phenomena that occurs around us and decided to delve deeper into an environmental structure that currently has tremendous impact on us in Seattle, Washington, and that would be Mount Rainier. Some of us have taken/are currently taking a volcanos course and we believe this would be another way to learn more about this topic, as it can greatly affect our awareness of volcanic activity. We source our volcano data (from 1980 to 2019) from the [Significant Volcano Eruption Database](https://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50)
+As a group, we were interested in the various natural phenomena that occurs around us and decided to delve deeper into an environmental structure that currently has tremendous impact on us in Seattle, Washington, and that would be Mount Rainier. Some of us have taken/are currently taking a volcanos course and we believe this would be another way to learn more about this topic, as it can greatly affect our awareness of volcanic activity. We source our volcano data (from 1980 to 2019) from the [Significant Volcano Eruption Database](https://www.ngdc.noaa.gov/nndc/servlet/ShowDatasets?dataset=102557&search_look=50&display_look=50).
 
 ## Summary Info
 
 ```{r summary_info, echo = FALSE}
 summary_info <- get_summary_info(volcano_data_set)
 ```
-We have calculated some relevant summary information regarding these **significant volcano eruptions**  since 1980 till the present day and would like share some interesting findings. The volcano with the highest elevation would be `r summary_info$volcano_with_highest_elevation`, and the number of eruptions since 1980 was `r summary_info$num_eruption`. The type of volcano that erupts most frequently would be `r summary_info$volcano_type` and this is due to the magma composition and the fragmentation process. The year that most lives were lost due to an eruption was in `r summary_info$year_most_dead` and the country with the most eruptions `r summary_info$country_most_eruptions`, implying in multiple major landscape deformations. The most damage caused by a single volcano, quantified by amount of money lost, would be by `r summary_info$most_damage`. `r summary_info$most_damage` had many factors that led to it's massive impact but it was mainly the lateral blast, plinian column and lahars that severly altered the results. And finally, we found the total deaths recorded due to volcanic eruptions was `r summary_info$total_death`.
+We have calculated some relevant summary information regarding these **significant volcano eruptions**  since 1980 till the present day and would like share some interesting findings. The volcano with the highest elevation would be `r summary_info$volcano_with_highest_elevation`, and the number of eruptions since 1980 was `r summary_info$num_eruption`. The type of volcano that erupts most frequently would be `r summary_info$volcano_type` and this is due to the magma composition and the fragmentation process. The year that most lives were lost due to an eruption was in `r summary_info$year_most_dead` and the country with the most eruptions was `r summary_info$country_most_eruptions`, implying in multiple major landscape deformations. The most damage caused by a single volcano, quantified by amount of money lost, would be by `r summary_info$most_damage`. `r summary_info$most_damage` had many factors that led to it's massive impact but it was mainly the lateral blast, plinian column and lahars that severly altered the results. And finally, we found the total deaths recorded due to volcanic eruptions was `r summary_info$total_death`.
 
 ## Summary Table
+
+The table hopes to explain "out of the eruptions with recorded VEI's, what was the average for each year?"" Also, what number of incidents per year did not have recorded incidents? All of this would be grouped by the year, allowing the viewer to see a volcano activity lull in some years prior. With the additional information of VEI not being recorded, these could turn to be interesting points of research to further our understanding.
 
 ```{r summary_table, echo = FALSE}
 temp_table <- get_table_info(volcano_data_set)
 kable(temp_table)
 ```
 
-The table hopes to explain out of the eruptions with recorded VEI's, what was the average for each year? Also, what number of incidents per year did not have recorded incidents? All of this would be grouped by the year, allowing the viewer to see a volcano activity lull in some years prior.
-
 ## Chart One
+#### Volcanic Eruption Zones
 ```{r chart_one_map, echo = FALSE}
 # Render the map through chart one function
 aggregating_occurence_by_location(volcano_data_set)
@@ -52,10 +53,11 @@ The purpose of this map is to show the locations of recent eruptions since 1980.
 total_death_vs_year(volcano_data_set)
 ```
 
-The purpose of this bar plot is to show the trend of the impact on humans from the years 1980 to 2000. It will also aid in resolving our question regarding the trends throughout the years and using that information to predict and map out hazardous locations. VEI in this bar plot refers to the amount of magma that erupts out of a volcano.
+The purpose of this line plot is to show the trend of the impact on humans from the years 1980 to 2019. It will also aid in resolving our question regarding the trends throughout the years and using that information to predict and map out hazardous locations. VEI in this bar plot refers to the amount of magma that erupts out of a volcano.
 
 ## Chart Three
 ```{r chart_three_plot, echo = FALSE}
 top_five_country_greaest_damage(volcano_data_set)
 ```
 
+The purpose of this barplot is to compare the severity of the top 5 countries impacted in terms of damage to their environment and living conditions since 1980. This will allow us to see the most dangerous areas and give us a better understanding of the locations to observe when looking to answer our question about how we can predict hazard zones.

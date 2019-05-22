@@ -52,6 +52,6 @@ get_summary_info <- function(vol_df) {
       filter(DAMAGE_MILLIONS_DOLLARS ==
              max(DAMAGE_MILLIONS_DOLLARS, na.rm = TRUE)) %>%
       pull(Name)
-    
+
   return (vol)
 }
