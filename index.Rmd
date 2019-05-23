@@ -31,7 +31,7 @@ We have calculated some relevant summary information regarding these **significa
 
 ## Summary Table
 
-The table hopes to explain "out of the eruptions with recorded VEI's, what was the average for each year?"" Also, what number of incidents per year did not have recorded incidents? All of this would be grouped by the year, allowing the viewer to see a volcano activity lull in some years prior. With the additional information of VEI not being recorded, these could turn to be interesting points of research to further our understanding.
+The table hopes to explain "out of the eruptions with recorded VEI's, what was the average for each year?" Also, what number of incidents per year did not have recorded incidents? All of this would be grouped by the year, allowing the viewer to see a volcano activity lull in some years prior. With the additional information of VEI not being recorded, these could turn to be interesting points of research to further our understanding.
 
 ```{r summary_table, echo = FALSE}
 temp_table <- get_table_info(volcano_data_set)
