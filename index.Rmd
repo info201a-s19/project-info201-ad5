@@ -45,7 +45,7 @@ kable(temp_table)
 aggregating_occurence_by_location(volcano_data_set)
 ```
 
-The purpose of this map is to show the locations of recent eruptions since 1980. With this, people with a brief understanding of tectonic plates would be able to understand and see the correlation between earthquakes, eruptions and plate boundaries. Even without this prior knowledge, the map can also provide locations where imminent danger could be a possibility, which is a step towards answering our question regarding volcanic danger in certain areas.
+The purpose of this map is to show the locations of recent eruptions since 1980. With this, people with a brief understanding of tectonic plates would be able to understand and see the correlation between earthquakes, eruptions and plate boundaries. Even without this prior knowledge, the map can also provide locations where imminent danger could be a possibility, which is a step towards answering our question regarding volcanic danger in certain areas. Looking at the map, we can see a concentration of volcanic activity among the continental and oceanic crusts, forming the famous Ring of Fire.
 
 ## Chart Two
 ```{r chart_two_plot, echo = FALSE}
@@ -53,11 +53,11 @@ The purpose of this map is to show the locations of recent eruptions since 1980.
 total_death_vs_year(volcano_data_set)
 ```
 
-The purpose of this line plot is to show the trend of the impact on humans from the years 1980 to 2019. It will also aid in resolving our question regarding the trends throughout the years and using that information to predict and map out hazardous locations. VEI in this bar plot refers to the amount of magma that erupts out of a volcano.
+The purpose of this line plot is to show the trend of the impact on humans from the years 1980 to 2019. It will also aid in resolving our question regarding the trends throughout the years and using that information to predict and map out hazardous locations. VEI in this bar plot refers to the amount of magma that erupts out of a volcano. In this graph we can see a massive spike in total deaths in the year 1985, most likely the effect of Mount Saint Helens and various other volcanos.
 
 ## Chart Three
 ```{r chart_three_plot, echo = FALSE}
 top_five_country_greaest_damage(volcano_data_set)
 ```
 
-The purpose of this barplot is to compare the severity of the top 5 countries impacted in terms of damage to their environment and living conditions since 1980. This will allow us to see the most dangerous areas and give us a better understanding of the locations to observe when looking to answer our question about how we can predict hazard zones.
+The purpose of this barplot is to compare the severity of the top 5 countries impacted in terms of damage to their environment and living conditions since 1980. This will allow us to see the most dangerous areas and give us a better understanding of the locations to observe when looking to answer our question about how we can predict hazard zones. In this plot we can see that the United States has suffered the most damage in the past 40 years compared to the other top 4 countries in terms of monetary damage taken. This was most likely due to Mount Saint Helens; given it's proximity to us, gives our group a reason to find ways to map out hazardous areas through our given data.

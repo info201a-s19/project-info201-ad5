@@ -15,5 +15,6 @@ total_death_vs_year <- function (data_set) {
 
   ggplot(data = data_trim, aes(x = Year, y = TOTAL_DEATHS)) +
     geom_line(aes(color = VEI)) +
-    ggtitle("Average Total Deaths per Year")
+    ggtitle("Average Total Deaths per Year") +
+    ylab("Total Deaths")
 }

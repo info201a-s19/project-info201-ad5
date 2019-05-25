@@ -14,5 +14,6 @@ top_five_country_greaest_damage <- function (data_set) {
 
   ggplot(data = data_trim) +
     geom_col(mapping = aes(x = Country, y = total_damage)) +
-    ggtitle("Top 5 Countries Most Impacted")
+    ggtitle("Top 5 Countries Most Impacted") +
+    ylab("Total Damage")
 }

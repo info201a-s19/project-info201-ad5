@@ -23,5 +23,7 @@ get_table_info <- function(volcanos) {
     "Number of Incidents with Recorded VEI"
   names(vol_table)[names(vol_table) == "Incidents.x"] <-
     "Total Number of Incidents"
+  names(vol_table)[names(vol_table) == "AVG_VEI"] <-
+    "Average VEI"
   return(vol_table)
 }
