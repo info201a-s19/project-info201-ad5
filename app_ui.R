@@ -1,11 +1,11 @@
 # Load in packages
-library("ggplot2")
 library("rsconnect")
+library("shiny")
 
 # Application UI
 intro_page <- tabPanel(
   "Introduction Page",
-  titlePanel(),
+  titlePanel("Introduction Page"),
   sidebarLayout(
     sidebarPanel(),
     mainPanel()
@@ -16,8 +16,18 @@ chart_one <- tabPanel(
   "Hazard Map",
   titlePanel("Hazard Map"),
   sidebarLayout(
-    sidebarPanel(),
-    mainPanel()
+    sidebarPanel(
+      
+      # Select country to display
+      selectInput(
+        inputId = "country_to_display",
+        label = "Country Volcanic Activity to Display",
+        choices = unique_countries
+      )
+    ),
+    mainPanel(
+      leafletOutput("map")
+    )
   )
 )
 
@@ -47,3 +57,12 @@ summary_page <- tabPanel(
     mainPanel()
   )
 )
+
+my_ui <- shinyUI(navbarPage(
+  "Volcano Information",
+  intro_page,
+  chart_one,
+  chart_two,
+  chart_three,
+  summary_page
+))
