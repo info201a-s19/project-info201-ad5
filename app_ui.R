@@ -22,7 +22,7 @@ chart_one <- tabPanel(
       selectInput(
         inputId = "country_to_display",
         label = "Country Volcanic Activity to Display",
-        choices = unique_countries
+        choices = c("All", unique_countries)
       )
     ),
     mainPanel(
