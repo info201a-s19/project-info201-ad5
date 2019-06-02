@@ -18,7 +18,7 @@ unique_countries <- volcano_data_set %>%
   distinct(Country)
 
 unique_countries_long_lat <- volcano_data_set %>%
-  select(Country, Latitude, Longitude, VEI) %>%
+  select(Country, Latitude, Longitude, VEI, DEATHS, Name) %>%
   group_by(Country) %>%
   arrange(Country)
 
@@ -31,16 +31,28 @@ my_server <- function(input, output) {
   })
   
   output$map <- renderLeaflet({
-    # Select long and lat based on country chosen
+    # Select long and lat based on country chosen, choose circle mappings
+    radius_style <- 
+    if (input$map_circles == "VEI") {
+      radius_style <- unique_countries_long_lat$VEI
+    } else {
+      radius_style <- unique_countries_long_lat$DEATHS
+    }
+    
     if (input$country_to_display == "All") {
       suppressWarnings(leaflet(data = unique_countries_long_lat) %>%
         addProviderTiles("Esri") %>%
         addCircleMarkers(
           lat = ~Latitude,
           lng = ~Longitude,
-          radius = ~VEI * 1.5,
+          radius = if (input$map_circles == "VEI") {
+            ~VEI * 2
+          } else {
+            ~DEATHS / 500
+          },
           color = "red",
-          stroke = FALSE, fillOpacity = 0.5
+          stroke = FALSE, fillOpacity = 0.5,
+          label = paste("VEI: ", ~VEI)
       ))
     } else {
       unique_countries_long_lat <- filter(unique_countries_long_lat,
@@ -53,9 +65,16 @@ my_server <- function(input, output) {
         addCircleMarkers(
           lat = ~Latitude,
           lng = ~Longitude,
-          radius = ~VEI * 1.5,
+          radius = if (input$map_circles == "VEI") {
+            ~VEI * 2
+          } else {
+            ~DEATHS / 500
+          },
           color = "red",
-          stroke = FALSE, fillOpacity = 0.5
+          stroke = FALSE, fillOpacity = 0.5,
+          label = paste( # Adding tooltip text
+            "VEI: ", ~VEI,
+            "<br>Number killed: ", ~DEATHS)
           ) %>%
         flyTo(avg_long, avg_lat, zoom = 3)
       )  

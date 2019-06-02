@@ -23,6 +23,13 @@ chart_one <- tabPanel(
         inputId = "country_to_display",
         label = "Country Volcanic Activity to Display",
         choices = c("All", unique_countries)
+      ),
+      
+      # Select what to map hazard levels
+      selectInput(
+        inputId = "map_circles",
+        label = "What to map the hazard levels with",
+        choices = c("VEI", "Deaths")
       )
     ),
     mainPanel(
