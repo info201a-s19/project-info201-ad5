@@ -52,7 +52,7 @@ my_server <- function(input, output) {
           },
           color = "red",
           stroke = FALSE, fillOpacity = 0.5,
-          label = paste("VEI: ", ~VEI)
+          label = ~Name
       ))
     } else {
       unique_countries_long_lat <- filter(unique_countries_long_lat,
@@ -72,9 +72,7 @@ my_server <- function(input, output) {
           },
           color = "red",
           stroke = FALSE, fillOpacity = 0.5,
-          label = paste( # Adding tooltip text
-            "VEI: ", ~VEI,
-            "<br>Number killed: ", ~DEATHS)
+          label = ~Name
           ) %>%
         flyTo(avg_long, avg_lat, zoom = 3)
       )  
