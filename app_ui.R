@@ -51,8 +51,30 @@ chart_three <- tabPanel(
   "Dangers of Volcano Types",
   titlePanel("Dangers of Volcano Types"),
   sidebarLayout(
-    sidebarPanel(),
-    mainPanel()
+    sidebarPanel(
+      selectInput(
+        inputId = "damage_measurement",
+        label = "Source of Damage to Measure With",
+        choices = c("Deaths", "Missing", "Injured", "Damage in Dollars")
+      ),
+      checkboxGroupInput("volcano_type", label =
+                           h3("Choose Volcano Type to Display"),
+                         choices = list("Stratovolcano",
+                                        "Tuff cone",
+                                        "Complex volcano",
+                                        "Maar",
+                                        "Caldera",
+                                        "Shield volcano",
+                                        "Pyroclastic shield",
+                                        "Cinder cone",
+                                        "Subglacial volcano",
+                                        "Lava dome"),
+                         selected = "Stratovolcano")
+      
+    ),
+    mainPanel(
+      plotOutput("piechart")
+    )
   )
 )
 

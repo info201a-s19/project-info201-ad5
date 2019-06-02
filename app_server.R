@@ -3,6 +3,7 @@ library("dplyr")
 library("tidyr")
 library("shiny")
 library("leaflet")
+library("ggplot2")
 library("rsconnect")
 
 # Load in and change data set for the 3 charts/widgets
@@ -21,6 +22,10 @@ unique_countries_long_lat <- volcano_data_set %>%
   select(Country, Latitude, Longitude, VEI, DEATHS, Name) %>%
   group_by(Country) %>%
   arrange(Country)
+
+# Data wrangle for volcano type, pie chart
+volcano_pie_chart <- volcano_data_set %>%
+  select(Type, DEATHS, MISSING, INJURIES, DAMAGE_MILLIONS_DOLLARS)
 
 # Application server
 my_server <- function(input, output) {
@@ -81,4 +86,46 @@ my_server <- function(input, output) {
   
   # Second chart -------------------
   
+  
+  # Third chart --------------------
+  output$piechart <- renderPlot({
+    # Set info to be captured
+    info_selection <- ""
+    if (input$damage_measurement == "Deaths") {
+      info_selection <- "DEATHS"
+    } else if (input$damage_measurement == "Injured") {
+      info_selection <- "INJURIES"
+    } else if (input$damage_measurement == "Missing") {
+      info_selection <- "MISSING"
+    } else {
+      info_selection <- "DAMAGE_MILLIONS_DOLLARS"
+    }
+    
+    # Filter data based on input of data to compare
+    volcano_pie_temp <- volcano_pie_chart %>%
+      group_by(Type) %>%
+      replace(is.na(.), 0) %>%
+      summarise_each(sum) %>%
+      select(Type, info_selection) %>%
+      filter(Type %in% input$volcano_type)
+    names(volcano_pie_temp)[names(volcano_pie_temp) == info_selection] <- "value"
+    
+    if (dim(volcano_pie_temp)[1] != 0) {
+      ggplot(data = volcano_pie_temp, aes(x = "", y = value, fill = Type)) +
+        geom_bar(width = 1, stat = "identity") +
+        coord_polar("y", start = 0) +
+        theme(axis.line = element_blank(),
+              plot.title = element_text(hjust = 0.5)) +
+        scale_fill_manual(values = c("#55DDE0", "#33658A", "#2F4858", "#F6AE2D",
+                                     "#F26419", "#999999", "#75d986", "#42f495",
+                                     "#e5f441", "#c16c8a")) +
+        labs(x = NULL, y = NULL, fill = NULL, title =
+               paste0("Damage Proportions")) +
+        theme_classic() + theme(axis.line = element_blank(),
+                                axis.text = element_blank(),
+                                axis.ticks = element_blank(),
+                                plot.title = element_text(hjust =
+                                                            0.5, color = "#7c7c8a"))
+    }
+  })
 }
