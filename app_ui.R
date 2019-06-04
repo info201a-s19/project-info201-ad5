@@ -167,7 +167,10 @@ chart_two <- tabPanel(
                 to be one of the most
                 dangerous ones as seen from the piechart
                 according to many different
-                methods of measuring.")
+                methods of measuring. Note: if a new field is
+                selected and the piechart does not update,
+                then that means the field was indicated as
+                0 by the website volcano dataset.")
       )
     )
   )
