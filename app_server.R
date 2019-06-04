@@ -29,21 +29,21 @@ volcano_pie_chart <- volcano_data_set %>%
 
 # Application server
 my_server <- function(input, output) {
-  
+
   # First chart ------------------------------
   output$country_to_choose <- renderPrint({
     input$country_to_display
   })
-  
+
   output$map <- renderLeaflet({
     # Select long and lat based on country chosen, choose circle mappings
-    radius_style <- 
+    radius_style <-
     if (input$map_circles == "VEI") {
       radius_style <- unique_countries_long_lat$VEI
     } else {
       radius_style <- unique_countries_long_lat$DEATHS
     }
-    
+
     if (input$country_to_display == "All") {
       suppressWarnings(leaflet(data = unique_countries_long_lat) %>%
         addProviderTiles("Esri") %>%
@@ -64,27 +64,30 @@ my_server <- function(input, output) {
                                           Country == input$country_to_display)
       avg_long <- mean(unique_countries_long_lat$Longitude, na.rm = TRUE)
       avg_lat <- mean(unique_countries_long_lat$Latitude, na.rm = TRUE)
-      
+
       suppressWarnings(leaflet(data = unique_countries_long_lat) %>%
         addProviderTiles("Esri") %>%
         addCircleMarkers(
           lat = ~Latitude,
           lng = ~Longitude,
           radius = if (input$map_circles == "VEI") {
-            ~VEI * 2
+            ~VEI * 3
           } else {
-            ~DEATHS / 500
+            ~DEATHS / 50
           },
           color = "red",
           stroke = FALSE, fillOpacity = 0.5,
           label = ~Name
           ) %>%
         flyTo(avg_long, avg_lat, zoom = 3)
-      )  
+      )
     }
   })
-  
-  # Second chart --------------------
+
+  # Second chart -------------------
+
+
+  # Third chart --------------------
   output$piechart <- renderPlot({
     # Set info to be captured
     info_selection <- ""
@@ -97,7 +100,7 @@ my_server <- function(input, output) {
     } else {
       info_selection <- "DAMAGE_MILLIONS_DOLLARS"
     }
-    
+
     # Filter data based on input of data to compare
     volcano_pie_temp <- volcano_pie_chart %>%
       group_by(Type) %>%
@@ -105,8 +108,9 @@ my_server <- function(input, output) {
       summarise_each(sum) %>%
       select(Type, info_selection) %>%
       filter(Type %in% input$volcano_type)
-    names(volcano_pie_temp)[names(volcano_pie_temp) == info_selection] <- "value"
-    
+    names(volcano_pie_temp)[names(volcano_pie_temp) ==
+                            info_selection] <- "value"
+
     if (dim(volcano_pie_temp)[1] != 0) {
       ggplot(data = volcano_pie_temp, aes(x = "", y = value, fill = Type)) +
         geom_bar(width = 1, stat = "identity") +
@@ -122,7 +126,7 @@ my_server <- function(input, output) {
                                 axis.text = element_blank(),
                                 axis.ticks = element_blank(),
                                 plot.title = element_text(hjust =
-                                                            0.5, color = "#7c7c8a"))
+                                                        0.5, color = "#7c7c8a"))
     }
   })
 }
