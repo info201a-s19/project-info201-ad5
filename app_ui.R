@@ -41,7 +41,7 @@ intro_page <- tabPanel(
                       "Significant Volcano Eruption Database"),
         tags$hr(),
 
-        tags$p("Below are the three questions we are seeking to answer"),
+        tags$p("Below are the two questions we are seeking to answer"),
 
         # List of 2 questions we are seeking to answer
         tags$ol(
