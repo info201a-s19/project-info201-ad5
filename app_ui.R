@@ -6,12 +6,18 @@ library("shiny")
 # Application UI
 intro_page <- tabPanel(
   "Introduction Page",
+  tags$head(tags$style(
+    HTML('
+         #sidebar {
+            background-color: #ad5a65;
+        }')
+  )),
   tags$h1("Introduction",
           style = "font-family: cursive;
           color: #4d3a7d; font-weight: 500;"
   ),
   sidebarLayout(
-    sidebarPanel(
+    sidebarPanel(id="sidebar",
       tags$div(class = "info", checked = NA,
         tags$b("Terminology: "),
         tags$p("The Volcanic Explosivity Index (VEI) is a relative measure
@@ -34,7 +40,7 @@ intro_page <- tabPanel(
                 way to learn more about this topic, as it can greatly
                 affect our awareness
                 of volcanic activity. We source our volcano data
-                (from 1980 to 2019) from the"),
+                (from 1980 to 2019) from the:"),
         tags$a(href = "https://www.ngdc.noaa.gov/nndc
                     /servlet/ShowDatasets?dataset=102557&search
                     _look=50&display_look=50",
@@ -213,13 +219,14 @@ summary_page <- tabPanel(
                (damage based on dollars) shows that ",
                tags$strong("Stratovolcano"), "is the most dangerous type
                of volcano as it
-               filled about 85% of the pie chart. This pertains to us
+               filled about 88% of the pie chart. This pertains to us
                locally as Mount Rainier
                and Mount Saint Helens are very close in proximity and are
                also Stratovolcanos.
                This insight brings us a sense of
                caution when we continue our lives within the area."),
         tags$img(src = "piechart.png", width = "500px", height = "400px"),
+        tags$img(src = "donut_chart.png", height = "400px"),
         style = "font-family: cursive;
                  color: #000000;
                  font-size: 18px;"

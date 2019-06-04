@@ -3,8 +3,6 @@ library("dplyr")
 library("tidyr")
 library("shiny")
 library("leaflet")
-library("ggplot2")
-library("plotly")
 library("rsconnect")
 
 # Load in and change data set for the 3 charts/widgets
@@ -89,7 +87,7 @@ my_server <- function(input, output) {
 
 
   # Third chart --------------------
-  output$piechart <- renderPlot({
+  output$piechart <- renderPlotly({
     # Set info to be captured
     info_selection <- ""
     if (input$damage_measurement == "Deaths") {
