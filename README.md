@@ -1,6 +1,7 @@
 # Project Brainstorm
 
-[Shiny App Hosted Link](https://github.com/info201a-s19/project-info201-ad5)
+[Shiny App Hosted Link](https://yprisma.shinyapps.io/project-info201-ad5/)
+
 [HTML Github Hosted Report Link](https://info201a-s19.github.io/project-info201-ad5)
 
 ## Topic
