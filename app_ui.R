@@ -1,6 +1,6 @@
 # Load in packages
 library("rsconnect")
-library("plotly")
+library("leaflet")
 library("shiny")
 
 # Application UI
