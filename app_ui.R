@@ -145,7 +145,7 @@ chart_two <- tabPanel(
 
     ),
     mainPanel(
-      plotOutput("piechart"),
+      plotlyOutput("piechart"),
 
       # Description
       tags$div(class = "introduction", checked = NA,

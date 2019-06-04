@@ -4,6 +4,7 @@ library("tidyr")
 library("shiny")
 library("leaflet")
 library("ggplot2")
+library("plotly")
 library("rsconnect")
 
 # Load in and change data set for the 3 charts/widgets
@@ -112,21 +113,13 @@ my_server <- function(input, output) {
                             info_selection] <- "value"
 
     if (dim(volcano_pie_temp)[1] != 0) {
-      ggplot(data = volcano_pie_temp, aes(x = "", y = value, fill = Type)) +
-        geom_bar(width = 1, stat = "identity") +
-        coord_polar("y", start = 0) +
-        theme(axis.line = element_blank(),
-              plot.title = element_text(hjust = 0.5)) +
-        scale_fill_manual(values = c("#55DDE0", "#33658A", "#2F4858", "#F6AE2D",
-                                     "#F26419", "#999999", "#75d986", "#42f495",
-                                     "#e5f441", "#c16c8a")) +
-        labs(x = NULL, y = NULL, fill = NULL, title =
-               paste0("Damage Proportions")) +
-        theme_classic() + theme(axis.line = element_blank(),
-                                axis.text = element_blank(),
-                                axis.ticks = element_blank(),
-                                plot.title = element_text(hjust =
-                                                        0.5, color = "#7c7c8a"))
+      plot_ly(volcano_pie_temp, labels = ~Type, values = ~value) %>%
+        add_pie(hole = 0.6) %>%
+        layout(title = "Damage Proportions",
+        xaxis = list(showgrid = FALSE, zeroline = FALSE,
+                     showticklabels = FALSE),
+        yaxis = list(showgrid = FALSE, zeroline = FALSE,
+                     showticklabels = FALSE))
     }
   })
 }
