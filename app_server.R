@@ -3,6 +3,7 @@ library("dplyr")
 library("tidyr")
 library("shiny")
 library("leaflet")
+library("plotly")
 library("rsconnect")
 
 # Load in and change data set for the 3 charts/widgets

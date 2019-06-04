@@ -1,23 +1,24 @@
 # Load in packages
 library("rsconnect")
 library("leaflet")
+library("plotly")
 library("shiny")
 
 # Application UI
 intro_page <- tabPanel(
   "Introduction Page",
   tags$head(tags$style(
-    HTML('
+    HTML("
          #sidebar {
             background-color: #ad5a65;
-        }')
+        }")
   )),
   tags$h1("Introduction",
           style = "font-family: cursive;
           color: #4d3a7d; font-weight: 500;"
   ),
   sidebarLayout(
-    sidebarPanel(id="sidebar",
+    sidebarPanel(id = "sidebar",
       tags$div(class = "info", checked = NA,
         tags$b("Terminology: "),
         tags$p("The Volcanic Explosivity Index (VEI) is a relative measure
