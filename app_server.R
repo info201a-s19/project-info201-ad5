@@ -84,10 +84,7 @@ my_server <- function(input, output) {
     }
   })
   
-  # Second chart -------------------
-  
-  
-  # Third chart --------------------
+  # Second chart --------------------
   output$piechart <- renderPlot({
     # Set info to be captured
     info_selection <- ""

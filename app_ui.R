@@ -29,11 +29,10 @@ intro_page <- tabPanel(
 
         tags$p("Below is the three questions we are seeking to answer"),
         
-        # List of 3 questions we are seeking to answer
+        # List of 2 questions we are seeking to answer
         tags$ol(
           tags$li("Where did the eruptions occur from 1980 to 2019? We created a hazard map which includes all the volcanic eruptions
                   occured from 1980 to 2019 around the world"), 
-          tags$li("What are different types of volcano in a country?"), 
           tags$li("What is the most dangerous type of volcano? To answer this question, we created a pie chart
                   and the dangerous level can be measured by number of death, number of people missing, number of people injured or the
                   total damage in Dollars. The pie chart can include different types of volcano for comparison.")
@@ -80,15 +79,6 @@ chart_one <- tabPanel(
 )
 
 chart_two <- tabPanel(
-  "Predominant Volcano Types in Different Countries",
-  titlePanel("Predominant Volcano Types in Different Countries"),
-  sidebarLayout(
-    sidebarPanel(),
-    mainPanel()
-  )
-)
-
-chart_three <- tabPanel(
   "Dangers of Volcano Types",
   tags$h1("Dangers of Volcano Types",
           style = "font-family: cursive;
@@ -141,10 +131,7 @@ summary_page <- tabPanel(
                ". Especially near south east asia and western caribbean."),
         tags$img(src = 'hazardmap.png', width = "600px", height = "400px"),
 
-        tags$p("Second takeaway: "),
-        tags$img(),
-
-        tags$p("Thrid takeaway: The below pie chart (damage based on dollars) shows that ", tags$strong("Stratovolcano"), "is the
+        tags$p("Second takeaway: The below pie chart (damage based on dollars) shows that ", tags$strong("Stratovolcano"), "is the
                most dangerous type of volcano as it filled about 85% of the pie chart."),
         tags$img(src = 'piechart.png', width = "500px", height = "400px"),
         style = "font-family: cursive;
@@ -160,6 +147,5 @@ my_ui <- shinyUI(navbarPage(
   intro_page,
   chart_one,
   chart_two,
-  chart_three,
   summary_page
 ))
